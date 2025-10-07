@@ -2,7 +2,8 @@
     Theme Base
    =================*/
 :root {
-  --color-primary: #179BD7;
+  /* --color-primary: #179BD7; */
+  --color-primary: #34509A;
   --color-secondary: #1C1C1C;
   --color-paragraph: #7B7E86;
   --color-white: #ffffff;

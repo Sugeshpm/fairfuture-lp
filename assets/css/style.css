@@ -81,7 +81,8 @@ Developed by: Asadur Jaman Nur
     Theme Base
    =================*/
 :root {
-  --color-primary: #179BD7;
+  /* --color-primary: #179BD7; */
+  --color-primary: #34509A;
   --color-secondary: #1C1C1C;
   --color-paragraph: #7B7E86;
   --color-white: #ffffff;
@@ -4247,7 +4248,7 @@ html {
 
 .cta.v2 .cta-right-content {
   padding: 30px;
-  background: rgba(23, 155, 215, 0.96);
+  background: #34509A;
   position: relative;
   z-index: 1;
 }
@@ -10652,7 +10653,7 @@ html {
   Copy Right Section
   -------------------*/
 .copyright-section.v1 {
-  background: #2c465d;
+  background: #34509a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
