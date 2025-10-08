@@ -57,7 +57,7 @@
                             <div class="menu-area-right-content">
                                 
                                 <div class="all-btn">
-                                    <a href="" class="btn-p v1 btn-blue rounded icon-v1">
+                                    <a href=""  class="btn-p v1 btn-blue rounded openLeadModalBtn">
                                         Apply Now
                                     </a>
                                 </div>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="all-btn animate__animated animate__fadeInUp" style="animation-duration: 1s;">
-                <a href="" class="btn-p v1 btn-blue2 rounded icon-v1">Make Appointment</a>
+                <a href="" class="btn-p v1 btn-blue2 rounded openLeadModalBtn">Apply Now</a>
             </div>
             <div class="slider-boder"></div>
             <div class="slider-boder2"></div>
@@ -268,8 +268,8 @@
             </ul>
             <div class="play-data v2" data-aos="fade-left" data-aos-duration="1000">
               <div class="all-btn">
-                <a href="" class="btn-p v1 btn-blue icon-v1 rounded"
-                  >MORE ABOUT US</a
+                <a href="" class="btn-p v1 btn-blue rounded openLeadModalBtn"
+                  >Apply Now</a
                 >
               </div>
               <a
@@ -316,7 +316,7 @@
             </div>
         </div>
         <div class="all-btn" data-aos="fade-up" data-aos-duration="1000">
-            <a href="" class="btn-p v1 btn-white rounded icon-v1">Register Now</a>
+            <a href="" class="btn-p v1 btn-white rounded">Apply Now</a>
         </div>
         <div class="cta-bg-img">
             <img src="assets/img/cta/v2/cta-bg-img.png" alt="cta-bg-img">
@@ -465,7 +465,7 @@
           <div class="check-box">
             <div class="all-btn v3">
               <button class="btn-p v1 rounded btn-white" type="submit">
-                Make Appointment
+                Apply Now
               </button>
             </div>
           </div>
@@ -493,6 +493,7 @@
 </div>
 <!-- Jquery -->
 <script src="assets/js/jquery.min.js"></script>
+   <script src="assets/js/jquery.3.6.min.js"></script>
 
 <!-- bootstrap -->
 <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -519,42 +520,43 @@
 </body>
 </html>
 
-<!-- ===== Custom Lead Modal Start ===== -->
+
+<!-- ===== Lead Modal Form ===== -->
 <div id="leadModalNew" class="lead-modal-new">
   <div class="lead-modal-content-new">
     <span class="lead-close-new">&times;</span>
-    <h2>Enquire Now</h2>
+    <h2>Apply Now</h2>
     <p>Please fill in your details below:</p>
 
-    <form id="leadFormNew" method="POST">
-      <div class="form-group-new">
-        <input type="text" name="name" id="leadNameNew" placeholder="Full Name" required>
-        <div class="error-text-new" id="errorNameNew"></div>
+    <form id="leadFormNew" class="leadPopForm">
+      <div class="form-group-new validtn">
+        <input type="text" class="inponr" name="name" placeholder="Full Name">
+        <span class="errorspan">This field is required</span>
       </div>
 
-      <div class="form-group-new">
-        <input type="email" name="email" id="leadEmailNew" placeholder="Email Address" required>
-        <div class="error-text-new" id="errorEmailNew"></div>
+      <div class="form-group-new validtn">
+        <input type="email" class="inponr emailinp" name="email" placeholder="Email Address">
+        <span class="errorspan">This field is required</span>
+        <span class="erroremailspan">Invalid email</span>
       </div>
 
-      <div class="form-group-new">
-        <input type="tel" name="phone" id="leadPhoneNew" placeholder="Phone Number" required>
-        <div class="error-text-new" id="errorPhoneNew"></div>
+      <div class="form-group-new validtn">
+        <input type="tel" class="inponr phoneinp" name="phone" placeholder="Phone Number">
+        <span class="errorspan">This field is required</span>
+        <span class="errorphonespan">Invalid phone number</span>
       </div>
 
-      <div class="form-group-new">
-        <input type="tel" name="whatsapp" id="leadWhatsappNew" placeholder="WhatsApp Number" required>
-        <div class="error-text-new" id="errorWhatsappNew"></div>
+      <div class="form-group-new validtn">
+        <input type="tel" class="inponr whatsappinp" name="whatsapp" placeholder="WhatsApp Number">
+        <span class="errorspan">This field is required</span>
+        <span class="errorphonespan">Invalid WhatsApp number</span>
       </div>
 
-      <button type="submit" id="leadSubmitNew">Submit</button>
-      <div class="form-success-new" id="leadSuccessNew"></div>
+      <button type="submit" class="sub" onclick="onsubmitLeadForm(event)">Submit</button>
+      <div class="form-success-new" style="display:none;"></div>
     </form>
   </div>
 </div>
-
-<!-- ===== Trigger Button ===== -->
-<button id="openLeadModalNew">Open Lead Form</button>
 
 <!-- ===== Styles ===== -->
 <style>
@@ -593,13 +595,14 @@
   }
 
   .lead-modal-content-new h2 {
-    color: #003D39;
+    color: #FF9213;
     margin-bottom: 8px;
   }
 
   .form-group-new {
     text-align: left;
     margin-bottom: 15px;
+    position: relative;
   }
 
   .form-group-new input {
@@ -610,16 +613,16 @@
     font-size: 14px;
   }
 
-  .error-text-new {
+  .errorspan, .erroremailspan, .errorphonespan {
     color: red;
     font-size: 12px;
+    display: none;
     margin-top: 3px;
-    min-height: 14px;
   }
 
-  #leadSubmitNew {
+  .sub {
     width: 100%;
-    background: #003D39;
+    background: #FF9213;
     color: #fff;
     border: none;
     padding: 10px;
@@ -628,94 +631,112 @@
     cursor: pointer;
   }
 
-  #leadSubmitNew:hover {
-    background: #02685f;
+  .sub:hover {
+    background: #FF9213;
   }
 
   .form-success-new {
     margin-top: 10px;
-    color: #155724;
+    color: #FF9213;
     background: #d4edda;
     padding: 8px;
     border-radius: 5px;
     display: none;
+    font-size: 14px;
   }
 </style>
 
-<!-- ===== Script ===== -->
+<!-- ===== jQuery + AJAX Script ===== -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  // Modal controls
+  // Modal open/close
   const leadModalNew = document.getElementById("leadModalNew");
-  const openLeadModalNew = document.getElementById("openLeadModalNew");
+  // const openLeadModalNew = document.getElementById("openLeadModalNew");
   const closeLeadModalNew = document.querySelector(".lead-close-new");
 
-  openLeadModalNew.onclick = () => (leadModalNew.style.display = "block");
-  closeLeadModalNew.onclick = () => (leadModalNew.style.display = "none");
-  window.onclick = (e) => { if (e.target == leadModalNew) leadModalNew.style.display = "none"; };
+  $(".openLeadModalBtn").on("click", function() {
+  leadModalNew.style.display = "block";
+});
+closeLeadModalNew.onclick = () => (leadModalNew.style.display = "none");
+
+// Close modal on clicking outside
+window.onclick = (e) => { 
+  if (e.target == leadModalNew) leadModalNew.style.display = "none"; 
+};
 
   // Form validation and AJAX submission
-  document.getElementById("leadFormNew").addEventListener("submit", async function (e) {
-    e.preventDefault();
+  function onsubmitLeadForm(event) {
+    event.preventDefault();
 
-    // Clear previous errors
-    document.querySelectorAll(".error-text-new").forEach(el => el.textContent = "");
-    document.getElementById("leadSuccessNew").style.display = "none";
+    var submitproc = true;
 
-    let valid = true;
-    const name = document.getElementById("leadNameNew").value.trim();
-    const email = document.getElementById("leadEmailNew").value.trim();
-    const phone = document.getElementById("leadPhoneNew").value.trim();
-    const whatsapp = document.getElementById("leadWhatsappNew").value.trim();
-
-    // Basic validation
-    if (name === "") {
-      document.getElementById("errorNameNew").textContent = "Full name is required.";
-      valid = false;
-    }
-
-    if (email === "" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      document.getElementById("errorEmailNew").textContent = "Enter a valid email address.";
-      valid = false;
-    }
-
-    if (phone === "" || !/^[0-9]{10}$/.test(phone)) {
-      document.getElementById("errorPhoneNew").textContent = "Enter a valid 10-digit phone number.";
-      valid = false;
-    }
-
-    if (whatsapp === "" || !/^[0-9]{10}$/.test(whatsapp)) {
-      document.getElementById("errorWhatsappNew").textContent = "Enter a valid 10-digit WhatsApp number.";
-      valid = false;
-    }
-
-    if (!valid) return;
-
-    // AJAX Submit
-    const formData = new FormData(this);
-
-    try {
-      const response = await fetch("{{ route('form.submit') }}", {
-        method: "POST",
-        headers: { "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value },
-        body: formData
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        document.getElementById("leadSuccessNew").textContent = "Form submitted successfully!";
-        document.getElementById("leadSuccessNew").style.display = "block";
-        document.getElementById("leadFormNew").reset();
-      } else if (data.errors) {
-        // Show validation errors from backend
-        for (let key in data.errors) {
-          const errField = document.getElementById(`error${key.charAt(0).toUpperCase() + key.slice(1)}New`);
-          if (errField) errField.textContent = data.errors[key][0];
-        }
+    $(".inponr").each(function () {
+      if ($(this).val().trim() === "") {
+        $(this).parents(".validtn").find(".errorspan").show();
+        submitproc = false;
+      } else {
+        $(this).parents(".validtn").find(".errorspan").hide();
       }
-    } catch (error) {
-      document.getElementById("leadSuccessNew").textContent = "Something went wrong. Please try again.";
-      document.getElementById("leadSuccessNew").style.display = "block";
+    });
+
+    // Email validation
+    function isEmail(email) {
+      var regex = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
     }
-  });
+    var email = $(".emailinp").val().trim();
+    if (email !== "" && !isEmail(email)) {
+      $(".erroremailspan").show();
+      submitproc = false;
+    } else {
+      $(".erroremailspan").hide();
+    }
+
+    // Phone validation
+    var phone = $(".phoneinp").val().trim();
+    if (phone !== "" && !/^\d{10}$/.test(phone)) {
+      $(".errorphonespan").eq(0).show();
+      submitproc = false;
+    } else {
+      $(".errorphonespan").eq(0).hide();
+    }
+
+    var whatsapp = $(".whatsappinp").val().trim();
+    if (whatsapp !== "" && !/^\d{10}$/.test(whatsapp)) {
+      $(".errorphonespan").eq(1).show();
+      submitproc = false;
+    } else {
+      $(".errorphonespan").eq(1).hide();
+    }
+
+    if (submitproc) {
+      $(".sub").attr("disabled", true).text("Submitting...");
+      $(".form-success-new").hide();
+
+      $.ajax({
+        url: "{{ route('form.submit') }}", // Replace with your backend route
+        type: "POST",
+        data: $("#leadFormNew").serialize(),
+        success: function (data) {
+          if (data.success) {
+            $(".form-success-new").text("Form submitted successfully!").show();
+            $("#leadFormNew")[0].reset();
+            $(".sub").attr("disabled", false).text("Submit");
+          } else if (data.errors) {
+            for (let key in data.errors) {
+              let fieldIndex = 0;
+              if (key === "whatsapp") fieldIndex = 1;
+              const errField = $(".errorphonespan").eq(fieldIndex);
+              if (errField) errField.text(data.errors[key][0]).show();
+            }
+            $(".sub").attr("disabled", false).text("Submit");
+          }
+        },
+        error: function () {
+          $(".form-success-new").text("Something went wrong. Please try again.").show();
+          $(".sub").attr("disabled", false).text("Submit");
+        }
+      });
+    }
+  }
 </script>
