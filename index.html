@@ -6,7 +6,7 @@
     <meta name="keywords" content="Edupls - Education & Online Course HTML Template">
 	<meta name="description" content="Edupls - Education & Online Course HTML Template">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="assets/img/logo/fav-icon.svg">
+ <link rel="shortcut icon" href="https://fairfutureonline.com/img/favicon.png" type="image/x-icon">
 	<title>Home | Fair Future Online</title>
 	<!-- Fontawesome Icon -->
 	<link rel="stylesheet" href="assets/css/all.min.css">
@@ -76,7 +76,7 @@
 </header>
 <section class="@ @">
     <div class="banner-content v3">
-        <div class="banner-img" style="background-image: url('assets/img/banner/v3/banner-img.jpg');">
+        <div class="banner-img" style="background-image: url('assets/img/fairfuture-banner.webp');">
             <div class="section-title center">
                 <div class="section-title-inner w-v3 center">
                     <h4 class="sub-titlev3 animate__animated animate__fadeInUp" style="animation-duration: 1s;">Expert guidance. Seamless planning. A journey designed for your success!</h4>
@@ -215,7 +215,7 @@
         <div class="col-lg-6 col-md-6">
           <ul class="about-left-content">
             <li class="content-img-1" data-aos="fade-up" data-aos-duration="1500">
-              <img src="assets/img/about-us/img-1.jpg" alt="about-img" />
+              <img src="assets/img/about-1.webp" alt="about-img" />
             </li>
             <li class="content-box-1">
               <div class="box-icon">
@@ -230,7 +230,7 @@
               <h4 class="title">25+ Years Working Experience</h4>
             </li>
             <li class="content-img-2" data-aos="fade-up" data-aos-duration="1500">
-              <img src="assets/img/about-us/img-2.jpg" alt="about-img" />
+              <img src="assets/img/about-2.webp" alt="about-img" />
             </li>
           </ul>
         </div>
@@ -332,7 +332,7 @@
                 <div class="col-lg-5">
                     <div class="feedback-left-content">
                         <div class="feedback-left-img" data-aos="zoom-in-up" data-aos-duration="2000">
-                            <img src="assets/img/student-feedback/feedback-big-img.jpg" alt="feedback-big-img">
+                            <img src="assets/img/student-review.webp" alt="feedback-big-img">
                         </div>
                         <div class="feedback-right-bg-img">
                             <img src="assets/img/student-feedback/feedback-left-bg1.png" alt="feedback-left-bg-img">
@@ -427,7 +427,7 @@
   <div class="container-xxl">
     <div class="contact-us-content">
       <div class="contact-us-img">
-        <img src="assets/img/contact-us/contact-img.jpg" alt="contact-img" />
+        <img src="assets/img/ff-form.webp" alt="contact-img" />
       </div>
       <div class="contact-us-right-content">
         <div class="section-title">
@@ -518,3 +518,204 @@
 <script src="assets/js/index.js"></script>
 </body>
 </html>
+
+<!-- ===== Custom Lead Modal Start ===== -->
+<div id="leadModalNew" class="lead-modal-new">
+  <div class="lead-modal-content-new">
+    <span class="lead-close-new">&times;</span>
+    <h2>Enquire Now</h2>
+    <p>Please fill in your details below:</p>
+
+    <form id="leadFormNew" method="POST">
+      <div class="form-group-new">
+        <input type="text" name="name" id="leadNameNew" placeholder="Full Name" required>
+        <div class="error-text-new" id="errorNameNew"></div>
+      </div>
+
+      <div class="form-group-new">
+        <input type="email" name="email" id="leadEmailNew" placeholder="Email Address" required>
+        <div class="error-text-new" id="errorEmailNew"></div>
+      </div>
+
+      <div class="form-group-new">
+        <input type="tel" name="phone" id="leadPhoneNew" placeholder="Phone Number" required>
+        <div class="error-text-new" id="errorPhoneNew"></div>
+      </div>
+
+      <div class="form-group-new">
+        <input type="tel" name="whatsapp" id="leadWhatsappNew" placeholder="WhatsApp Number" required>
+        <div class="error-text-new" id="errorWhatsappNew"></div>
+      </div>
+
+      <button type="submit" id="leadSubmitNew">Submit</button>
+      <div class="form-success-new" id="leadSuccessNew"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ===== Trigger Button ===== -->
+<button id="openLeadModalNew">Open Lead Form</button>
+
+<!-- ===== Styles ===== -->
+<style>
+  .lead-modal-new {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding-top: 80px;
+  }
+
+  .lead-modal-content-new {
+    background: #fff;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .lead-close-new {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .lead-modal-content-new h2 {
+    color: #003D39;
+    margin-bottom: 8px;
+  }
+
+  .form-group-new {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .form-group-new input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .error-text-new {
+    color: red;
+    font-size: 12px;
+    margin-top: 3px;
+    min-height: 14px;
+  }
+
+  #leadSubmitNew {
+    width: 100%;
+    background: #003D39;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  #leadSubmitNew:hover {
+    background: #02685f;
+  }
+
+  .form-success-new {
+    margin-top: 10px;
+    color: #155724;
+    background: #d4edda;
+    padding: 8px;
+    border-radius: 5px;
+    display: none;
+  }
+</style>
+
+<!-- ===== Script ===== -->
+<script>
+  // Modal controls
+  const leadModalNew = document.getElementById("leadModalNew");
+  const openLeadModalNew = document.getElementById("openLeadModalNew");
+  const closeLeadModalNew = document.querySelector(".lead-close-new");
+
+  openLeadModalNew.onclick = () => (leadModalNew.style.display = "block");
+  closeLeadModalNew.onclick = () => (leadModalNew.style.display = "none");
+  window.onclick = (e) => { if (e.target == leadModalNew) leadModalNew.style.display = "none"; };
+
+  // Form validation and AJAX submission
+  document.getElementById("leadFormNew").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    document.querySelectorAll(".error-text-new").forEach(el => el.textContent = "");
+    document.getElementById("leadSuccessNew").style.display = "none";
+
+    let valid = true;
+    const name = document.getElementById("leadNameNew").value.trim();
+    const email = document.getElementById("leadEmailNew").value.trim();
+    const phone = document.getElementById("leadPhoneNew").value.trim();
+    const whatsapp = document.getElementById("leadWhatsappNew").value.trim();
+
+    // Basic validation
+    if (name === "") {
+      document.getElementById("errorNameNew").textContent = "Full name is required.";
+      valid = false;
+    }
+
+    if (email === "" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      document.getElementById("errorEmailNew").textContent = "Enter a valid email address.";
+      valid = false;
+    }
+
+    if (phone === "" || !/^[0-9]{10}$/.test(phone)) {
+      document.getElementById("errorPhoneNew").textContent = "Enter a valid 10-digit phone number.";
+      valid = false;
+    }
+
+    if (whatsapp === "" || !/^[0-9]{10}$/.test(whatsapp)) {
+      document.getElementById("errorWhatsappNew").textContent = "Enter a valid 10-digit WhatsApp number.";
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // AJAX Submit
+    const formData = new FormData(this);
+
+    try {
+      const response = await fetch("{{ route('form.submit') }}", {
+        method: "POST",
+        headers: { "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value },
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        document.getElementById("leadSuccessNew").textContent = "Form submitted successfully!";
+        document.getElementById("leadSuccessNew").style.display = "block";
+        document.getElementById("leadFormNew").reset();
+      } else if (data.errors) {
+        // Show validation errors from backend
+        for (let key in data.errors) {
+          const errField = document.getElementById(`error${key.charAt(0).toUpperCase() + key.slice(1)}New`);
+          if (errField) errField.textContent = data.errors[key][0];
+        }
+      }
+    } catch (error) {
+      document.getElementById("leadSuccessNew").textContent = "Something went wrong. Please try again.";
+      document.getElementById("leadSuccessNew").style.display = "block";
+    }
+  });
+</script>
